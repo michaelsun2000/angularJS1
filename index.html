@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+
+</head>
+<body >
+<div>
+    <label for="searchname">Name:</label><input id="searchname" ng-model="searchname" placeholder="Enter a name" >
+    <button ng-click="search()">search</button>
+</div>
+
+<div ng-controller="MyCtrl"></div>
+<div search-panel></div>
+
+<search-panel></search-panel>
+
+<hr>
+
+<result-panel></result-panel>
+<div>
+
+ <table>
+     <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Gender</th>
+         <th>Introduction</th>
+      </tr>
+     <tr ng-repeat="user in users">
+        <td ng-bind="user.firstName"></td>
+         <td >{{user.lastName}}</td>
+         <td>{{user.gender | genderFilter: user}}</td>
+         <td>{{user.job}}</td>
+         <td>{{user.introduction}}</td>
+    </tr>
+
+ </table>
+</div>
+
+<div result-panel></div>
+
+</div>
+
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
